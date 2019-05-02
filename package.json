@@ -1,0 +1,49 @@
+{
+  "name": "yhcting-stubex",
+  "version": "0.0.1",
+  "description": "Helper to access fabric-shim - hyperledger fabric v1.2",
+  "main": "index.js",
+  "scripts": {
+    "buildd": "npm run tslint && tsc -p tsconfig.json",
+    "build": "npm run tslint && webpack --config webpack.prod.js",
+    "clean": "rm -rf build/ dist/",
+    "test": "./scripts/unittest.sh \"$(pwd)\"",
+    "test:coverage": "./scripts/unittest.sh \"$(pwd)\" coverage",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "distd": "npm run buildd && ./scripts/distd.sh $(pwd)",
+    "dist": "npm run build && ./scripts/dist.sh $(pwd)",
+    "startd": "npm start -- --peer.address $CORE_PEER_ADDRESS",
+    "start": "node --max_old_space_size=16384 index.js"
+  },
+  "author": "yhcting77@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "elliptic": "^6.4.1",
+    "fabric-shim": "~1.2.4",
+    "is-base64": "^0.1.0",
+    "jsrsasign": "^8.0.12",
+    "lodash": "^4.17.11",
+    "long": "^4.0.0",
+    "node": "^8.16.0",
+    "utf8": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/lodash": "^4.14.123",
+    "@types/long": "^4.0.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.8",
+    "@types/utf8": "^2.1.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0",
+    "ts-loader": "^5.4.5",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

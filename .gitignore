@@ -1,0 +1,13 @@
+.*
+!.gitignore
+!.vscode/
+
+/node_modules/
+
+# build or test outputs
+/dist/
+/build/
+/coverage/
+/gen/
+/temp/
+

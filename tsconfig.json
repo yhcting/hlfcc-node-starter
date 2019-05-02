@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "newLine": "lf",
+        "preserveSymlinks": true,
+        "alwaysStrict": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "strictNullChecks": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+
+        "outDir": "build",
+        "rootDir": "src",
+        "baseUrl": "src",
+        "paths": {
+            "*": [
+                "*",
+                "types/*"
+            ]
+        },
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "src/types",
+        "build",
+        "dist",
+        "node_modules"
+    ]
+}

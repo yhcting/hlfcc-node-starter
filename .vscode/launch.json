@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/node",
+            "program": "${workspaceFolder}/src/index.ts",
+            "runtimeArgs": [
+                "--nolazy",
+                "--max_old_space_size=16384"
+            ],
+            "args": [
+                "--peer.address",
+                "127.0.0.1:7052"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/build/**/*.js"
+            ],
+            "skipFiles": [
+                "node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ],
+            "env": {
+                "NODE_ENV": "dev",
+                "CORE_VM_ENDPOINT": "unix:///host/var/run/docker.sock",
+                "CORE_LOGGING_LEVEL": "DEBUG",
+                "CORE_PEER_ID": "chaincode",
+                "CORE_PEER_ADDRESS": "127.0.0.1:7052",
+                "CORE_CHAINCODE_ID_NAME": "mycc:0",
+                "CORE_PEER_LOCALMSPID": "Dev",
+                "CORE_PEER_MSPCONFIGPATH": "/my/msp/path"
+            },
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Test Program",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/node",
+            "program": "${workspaceFolder}/src/index.spec.ts",
+            "runtimeArgs": [
+                "--nolazy",
+                "--max_old_space_size=16384"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/build/**/*.js"
+            ],
+            "skipFiles": [
+                "node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Current File",
+            "program": "${workspaceFolder}/node_modules/.bin/_mocha",
+            "runtimeArgs": [
+                "--nolazy",
+                "--max_old_space_size=16384",
+                "--preserve-symlinks"
+            ],
+            "args": [
+                "-r",
+                "ts-node/register",
+                "--no-timeouts",
+                "--colors",
+                "${file}"
+            ],
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            "skipFiles": [
+                "node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ],
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}
